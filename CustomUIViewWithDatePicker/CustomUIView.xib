@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomUIView" customModule="CustomUIViewWithDatePicker" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="gp6-f7-WCu" id="bO0-Lc-YR0"/>
+                <outlet property="doneButton" destination="hHm-VZ-chu" id="x2V-0e-m54"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-ur-YL3">
+                    <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S5Z-xU-aC5">
+                        <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gp6-f7-WCu">
+                                <rect key="frame" x="0.0" y="40" width="476" height="404"/>
+                                <color key="tintColor" name="AccentColor"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHm-VZ-chu">
+                                <rect key="frame" x="15" y="15" width="80" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="uNt-lW-ghw"/>
+                                    <constraint firstAttribute="height" constant="25" id="xau-1J-n0x"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Готово"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Готово">
+                                    <color key="baseBackgroundColor" systemColor="systemMintColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="YqM-7R-IDO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="gp6-f7-WCu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" id="5Eh-BS-AuI"/>
+                            <constraint firstAttribute="trailing" secondItem="gp6-f7-WCu" secondAttribute="trailing" id="IE6-cI-G6J"/>
+                            <constraint firstItem="gp6-f7-WCu" firstAttribute="top" secondItem="hHm-VZ-chu" secondAttribute="bottom" id="KBY-MD-B7A"/>
+                            <constraint firstItem="hHm-VZ-chu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" constant="15" id="bxf-aJ-4ob"/>
+                            <constraint firstAttribute="bottom" secondItem="gp6-f7-WCu" secondAttribute="bottom" id="usn-Os-eJC"/>
+                            <constraint firstItem="hHm-VZ-chu" firstAttribute="top" secondItem="S5Z-xU-aC5" secondAttribute="top" constant="15" id="zpN-QS-Drz"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="systemMaterial"/>
+                </visualEffectView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Mc7-ur-YL3" secondAttribute="trailing" priority="999" id="WU7-Rg-f8l"/>
+                <constraint firstItem="Mc7-ur-YL3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="X7J-8y-pDC"/>
+                <constraint firstAttribute="bottom" secondItem="Mc7-ur-YL3" secondAttribute="bottom" priority="999" id="gro-1B-jR7"/>
+                <constraint firstItem="Mc7-ur-YL3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tD7-e4-hhH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="88.549618320610676" y="-60.563380281690144"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
