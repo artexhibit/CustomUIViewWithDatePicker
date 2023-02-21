@@ -1,9 +1,26 @@
 
 import UIKit
 
+protocol UIDatePickerDelegate {
+    func didPickedDateFromPicker(date: String)
+}
+
 class CustomUIView: UIView {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    var delegate: UIDatePickerDelegate?
+    var date: String?
+    var today: String?
+    
+    private var formatter: DateFormatter {
+        get {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy"
+            return formatter
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,8 +34,19 @@ class CustomUIView: UIView {
     
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
+        delegate?.didPickedDateFromPicker(date: date ?? "")
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
         hideView()
     }
+    
+    @IBAction func datePickerPressed(_ sender: UIDatePicker) {
+        date = formatter.string(from: sender.date)
+        today = formatter.string(from: Date())
+        configureDoneButton()
+    }
+    
     
     private func configure() {
         if let views = Bundle.main.loadNibNamed("CustomUIView", owner: self) {
@@ -46,7 +74,9 @@ class CustomUIView: UIView {
     }
     
     func showView(under button: UIButton) {
-        configurePopup(under: button)
+        configureView(under: button)
+        datePicker.date = Date()
+        configureDoneButton()
         
         self.backgroundColor = .clear
         self.layer.cornerRadius = 20
@@ -64,9 +94,10 @@ class CustomUIView: UIView {
             guard let self = self else { return }
             self.removeFromSuperview()
         }
+        date = formatter.string(from: Date())
     }
     
-    private func configurePopup(under button: UIButton) {
+    private func configureView(under button: UIButton) {
         guard let window = findWindow() else { return }
         
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -85,5 +116,15 @@ class CustomUIView: UIView {
         
         self.setNeedsLayout()
         self.layoutIfNeeded()
+    }
+    
+    private func configureDoneButton() {
+        if date != today {
+            doneButton.isHidden = false
+            doneButton.isUserInteractionEnabled = true
+        } else {
+            doneButton.isHidden = true
+            doneButton.isUserInteractionEnabled = false
+        }
     }
 }

@@ -47,18 +47,30 @@
                                     <constraint firstAttribute="height" constant="128" id="elx-P7-TO9"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8Z-Vw-Xox">
+                                <rect key="frame" x="0.0" y="758" width="393" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a8Z-Vw-Xox" secondAttribute="bottom" constant="30" id="2Ud-wK-PVW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fbG-cl-9jK" secondAttribute="trailing" constant="16" id="4Cp-Qk-C5x"/>
+                            <constraint firstItem="a8Z-Vw-Xox" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FT8-iV-Aby"/>
                             <constraint firstItem="vXj-gq-yto" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Lez-DN-9q3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a8Z-Vw-Xox" secondAttribute="trailing" id="Rbg-4u-SET"/>
                             <constraint firstItem="vXj-gq-yto" firstAttribute="top" secondItem="nBt-bP-f9K" secondAttribute="bottom" constant="35" id="axQ-az-L35"/>
                             <constraint firstItem="nBt-bP-f9K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="g5r-GQ-qMO"/>
                             <constraint firstItem="fbG-cl-9jK" firstAttribute="top" secondItem="nBt-bP-f9K" secondAttribute="bottom" constant="35" id="jA4-PV-rdY"/>
                             <constraint firstItem="nBt-bP-f9K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rUP-ar-suv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="a8Z-Vw-Xox" id="Mrc-ro-O8S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
