@@ -9,6 +9,7 @@ class CustomUIView: UIView {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cornerView: UIView!
     
     var delegate: UIDatePickerDelegate?
     var date: String?
@@ -32,9 +33,9 @@ class CustomUIView: UIView {
         configure()
     }
     
-    
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         delegate?.didPickedDateFromPicker(date: date ?? "")
+        hideView()
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
@@ -46,7 +47,6 @@ class CustomUIView: UIView {
         today = formatter.string(from: Date())
         configureDoneButton()
     }
-    
     
     private func configure() {
         if let views = Bundle.main.loadNibNamed("CustomUIView", owner: self) {
@@ -77,18 +77,15 @@ class CustomUIView: UIView {
         configureView(under: button)
         datePicker.date = Date()
         configureDoneButton()
+        configureViewDesign()
         
-        self.backgroundColor = .clear
-        self.layer.cornerRadius = 20
-        self.clipsToBounds = true
-        
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut) {
+        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseInOut) {
             self.alpha = 1.0
         }
     }
     
     func hideView() {
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut) {
+        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseInOut) {
             self.alpha = 0.0
         } completion: { [weak self] _ in
             guard let self = self else { return }
@@ -102,20 +99,34 @@ class CustomUIView: UIView {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         window.addSubview(self)
-        
-        self.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
+
+        self.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
         self.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10.0).isActive = true
-        self.widthAnchor.constraint(equalTo: window.safeAreaLayoutGuide.widthAnchor, multiplier: 0.95).isActive = true
-        self.heightAnchor.constraint(equalTo: window.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5).isActive = true
         
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.topAnchor.constraint(equalTo: doneButton.bottomAnchor).isActive = true
-        datePicker.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        datePicker.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        datePicker.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.widthAnchor.constraint(equalToConstant: 400.0).isActive = true
+            self.heightAnchor.constraint(equalToConstant: 400.0).isActive = true
+        } else {
+            if UIScreen.main.bounds.size.height == 568.0 {
+                self.heightAnchor.constraint(equalTo: window.safeAreaLayoutGuide.heightAnchor, multiplier: 0.6).isActive = true
+                self.widthAnchor.constraint(equalTo: window.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8).isActive = true
+            } else {
+                self.heightAnchor.constraint(equalTo: window.safeAreaLayoutGuide.heightAnchor, multiplier: 0.43).isActive = true
+                self.widthAnchor.constraint(equalTo: window.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75).isActive = true
+            }
+        }
+        configureDatePicker()
         
         self.setNeedsLayout()
         self.layoutIfNeeded()
+    }
+    
+    private func configureDatePicker() {
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.topAnchor.constraint(equalTo: doneButton.bottomAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: cornerView.bottomAnchor).isActive = true
+        datePicker.leadingAnchor.constraint(equalTo: cornerView.leadingAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: cornerView.trailingAnchor).isActive = true
     }
     
     private func configureDoneButton() {
@@ -126,5 +137,17 @@ class CustomUIView: UIView {
             doneButton.isHidden = true
             doneButton.isUserInteractionEnabled = false
         }
+    }
+    
+    private func configureViewDesign() {
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+        self.layer.shadowRadius = 6.0
+        self.layer.masksToBounds = false
+        
+        cornerView.layer.masksToBounds = true
+        cornerView.clipsToBounds = true
+        cornerView.layer.cornerRadius = 20
     }
 }

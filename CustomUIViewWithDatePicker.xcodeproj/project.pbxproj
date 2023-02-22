@@ -12,9 +12,6 @@
 		78F3F72929A3D8C5002E00C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F3F72729A3D8C5002E00C8 /* Main.storyboard */; };
 		78F3F72B29A3D8C6002E00C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78F3F72A29A3D8C6002E00C8 /* Assets.xcassets */; };
 		78F3F72E29A3D8C6002E00C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F3F72C29A3D8C6002E00C8 /* LaunchScreen.storyboard */; };
-		78F3F73629A3D92C002E00C8 /* NewPopupTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3F73529A3D92C002E00C8 /* NewPopupTestViewController.swift */; };
-		78F3F73829A3D971002E00C8 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3F73729A3D971002E00C8 /* PopupView.swift */; };
-		78F3F73A29A3D99E002E00C8 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78F3F73929A3D99E002E00C8 /* PopupView.xib */; };
 		78F3F74029A3DB17002E00C8 /* CustomUIViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3F73E29A3DB17002E00C8 /* CustomUIViewViewController.swift */; };
 		78F3F74529A3DCA2002E00C8 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3F74429A3DCA2002E00C8 /* CustomUIView.swift */; };
 		78F3F74729A3DCB5002E00C8 /* CustomUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78F3F74629A3DCB5002E00C8 /* CustomUIView.xib */; };
@@ -28,9 +25,6 @@
 		78F3F72A29A3D8C6002E00C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78F3F72D29A3D8C6002E00C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78F3F72F29A3D8C6002E00C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78F3F73529A3D92C002E00C8 /* NewPopupTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPopupTestViewController.swift; sourceTree = "<group>"; };
-		78F3F73729A3D971002E00C8 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
-		78F3F73929A3D99E002E00C8 /* PopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		78F3F73E29A3DB17002E00C8 /* CustomUIViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIViewViewController.swift; sourceTree = "<group>"; };
 		78F3F74429A3DCA2002E00C8 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		78F3F74629A3DCB5002E00C8 /* CustomUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomUIView.xib; sourceTree = "<group>"; };
@@ -72,22 +66,11 @@
 				78F3F72A29A3D8C6002E00C8 /* Assets.xcassets */,
 				78F3F72C29A3D8C6002E00C8 /* LaunchScreen.storyboard */,
 				78F3F72F29A3D8C6002E00C8 /* Info.plist */,
-				78F3F73B29A3DA82002E00C8 /* PopupView */,
 				78F3F74429A3DCA2002E00C8 /* CustomUIView.swift */,
 				78F3F73E29A3DB17002E00C8 /* CustomUIViewViewController.swift */,
 				78F3F74629A3DCB5002E00C8 /* CustomUIView.xib */,
 			);
 			path = CustomUIViewWithDatePicker;
-			sourceTree = "<group>";
-		};
-		78F3F73B29A3DA82002E00C8 /* PopupView */ = {
-			isa = PBXGroup;
-			children = (
-				78F3F73529A3D92C002E00C8 /* NewPopupTestViewController.swift */,
-				78F3F73729A3D971002E00C8 /* PopupView.swift */,
-				78F3F73929A3D99E002E00C8 /* PopupView.xib */,
-			);
-			path = PopupView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				78F3F72E29A3D8C6002E00C8 /* LaunchScreen.storyboard in Resources */,
-				78F3F73A29A3D99E002E00C8 /* PopupView.xib in Resources */,
 				78F3F72B29A3D8C6002E00C8 /* Assets.xcassets in Resources */,
 				78F3F74729A3DCB5002E00C8 /* CustomUIView.xib in Resources */,
 				78F3F72929A3D8C5002E00C8 /* Main.storyboard in Resources */,
@@ -163,10 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F3F73629A3D92C002E00C8 /* NewPopupTestViewController.swift in Sources */,
 				78F3F74529A3DCA2002E00C8 /* CustomUIView.swift in Sources */,
 				78F3F72229A3D8C5002E00C8 /* AppDelegate.swift in Sources */,
-				78F3F73829A3D971002E00C8 /* PopupView.swift in Sources */,
 				78F3F72429A3D8C5002E00C8 /* SceneDelegate.swift in Sources */,
 				78F3F74029A3DB17002E00C8 /* CustomUIViewViewController.swift in Sources */,
 			);

@@ -6,12 +6,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomUIView" customModule="CustomUIViewWithDatePicker" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="PJi-2v-abR" id="alg-bq-Y1w"/>
+                <outlet property="cornerView" destination="eMm-Ts-q9c" id="DjH-D7-31v"/>
                 <outlet property="datePicker" destination="gp6-f7-WCu" id="bO0-Lc-YR0"/>
                 <outlet property="doneButton" destination="hHm-VZ-chu" id="x2V-0e-m54"/>
             </connections>
@@ -21,73 +23,84 @@
             <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-ur-YL3">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMm-Ts-q9c" userLabel="Container View">
                     <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S5Z-xU-aC5">
-                        <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gp6-f7-WCu">
-                                <rect key="frame" x="0.0" y="45" width="388" height="399"/>
-                                <color key="tintColor" name="AccentColor"/>
-                                <connections>
-                                    <action selector="datePickerPressed:" destination="-1" eventType="valueChanged" id="FTI-OK-ljp"/>
-                                </connections>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHm-VZ-chu">
-                                <rect key="frame" x="15" y="15" width="80" height="30"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-ur-YL3">
+                            <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S5Z-xU-aC5">
+                                <rect key="frame" x="0.0" y="0.0" width="388" height="444"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gp6-f7-WCu">
+                                        <rect key="frame" x="0.0" y="45" width="388" height="399"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <connections>
+                                            <action selector="datePickerPressed:" destination="-1" eventType="valueChanged" id="FTI-OK-ljp"/>
+                                        </connections>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHm-VZ-chu">
+                                        <rect key="frame" x="15" y="15" width="80" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uNt-lW-ghw"/>
+                                            <constraint firstAttribute="height" constant="30" id="xau-1J-n0x"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Готово"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Готово">
+                                            <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="YqM-7R-IDO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJi-2v-abR">
+                                        <rect key="frame" x="273.66666666666669" y="15" width="99.333333333333314" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uio-oc-XRs"/>
+                                            <constraint firstAttribute="height" constant="30" id="wPK-tZ-19B"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Готово"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Отменить">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="4QX-a8-DJd"/>
+                                            <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="dEf-Wm-HLj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uNt-lW-ghw"/>
-                                    <constraint firstAttribute="height" constant="30" id="xau-1J-n0x"/>
+                                    <constraint firstItem="gp6-f7-WCu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" id="5Eh-BS-AuI"/>
+                                    <constraint firstItem="PJi-2v-abR" firstAttribute="top" secondItem="S5Z-xU-aC5" secondAttribute="top" constant="15" id="Chk-MB-3Ad"/>
+                                    <constraint firstAttribute="trailing" secondItem="PJi-2v-abR" secondAttribute="trailing" constant="15" id="HwJ-h1-FyN"/>
+                                    <constraint firstAttribute="trailing" secondItem="gp6-f7-WCu" secondAttribute="trailing" id="IE6-cI-G6J"/>
+                                    <constraint firstItem="gp6-f7-WCu" firstAttribute="top" secondItem="hHm-VZ-chu" secondAttribute="bottom" id="KBY-MD-B7A"/>
+                                    <constraint firstItem="hHm-VZ-chu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" constant="15" id="bxf-aJ-4ob"/>
+                                    <constraint firstAttribute="bottom" secondItem="gp6-f7-WCu" secondAttribute="bottom" id="usn-Os-eJC"/>
+                                    <constraint firstItem="hHm-VZ-chu" firstAttribute="top" secondItem="S5Z-xU-aC5" secondAttribute="top" constant="15" id="zpN-QS-Drz"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Готово"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Готово">
-                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="YqM-7R-IDO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJi-2v-abR">
-                                <rect key="frame" x="273.66666666666669" y="15" width="99.333333333333314" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uio-oc-XRs"/>
-                                    <constraint firstAttribute="height" constant="30" id="wPK-tZ-19B"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Готово"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Отменить">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="4QX-a8-DJd"/>
-                                    <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="dEf-Wm-HLj"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="gp6-f7-WCu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" id="5Eh-BS-AuI"/>
-                            <constraint firstItem="PJi-2v-abR" firstAttribute="top" secondItem="S5Z-xU-aC5" secondAttribute="top" constant="15" id="Chk-MB-3Ad"/>
-                            <constraint firstAttribute="trailing" secondItem="PJi-2v-abR" secondAttribute="trailing" constant="15" id="HwJ-h1-FyN"/>
-                            <constraint firstAttribute="trailing" secondItem="gp6-f7-WCu" secondAttribute="trailing" id="IE6-cI-G6J"/>
-                            <constraint firstItem="gp6-f7-WCu" firstAttribute="top" secondItem="hHm-VZ-chu" secondAttribute="bottom" id="KBY-MD-B7A"/>
-                            <constraint firstItem="hHm-VZ-chu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" constant="15" id="bxf-aJ-4ob"/>
-                            <constraint firstAttribute="bottom" secondItem="gp6-f7-WCu" secondAttribute="bottom" id="usn-Os-eJC"/>
-                            <constraint firstItem="hHm-VZ-chu" firstAttribute="top" secondItem="S5Z-xU-aC5" secondAttribute="top" constant="15" id="zpN-QS-Drz"/>
-                        </constraints>
-                    </view>
-                    <blurEffect style="systemMaterial"/>
-                </visualEffectView>
+                            </view>
+                            <blurEffect style="systemMaterial"/>
+                        </visualEffectView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Mc7-ur-YL3" firstAttribute="top" secondItem="eMm-Ts-q9c" secondAttribute="top" id="7QE-v3-Mur"/>
+                        <constraint firstItem="Mc7-ur-YL3" firstAttribute="leading" secondItem="eMm-Ts-q9c" secondAttribute="leading" id="8PX-Bh-EbK"/>
+                        <constraint firstAttribute="bottom" secondItem="Mc7-ur-YL3" secondAttribute="bottom" id="lOw-IC-a0X"/>
+                        <constraint firstAttribute="trailing" secondItem="Mc7-ur-YL3" secondAttribute="trailing" id="nW2-Bb-HVu"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Mc7-ur-YL3" secondAttribute="trailing" priority="999" id="WU7-Rg-f8l"/>
-                <constraint firstItem="Mc7-ur-YL3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="X7J-8y-pDC"/>
-                <constraint firstAttribute="bottom" secondItem="Mc7-ur-YL3" secondAttribute="bottom" priority="999" id="gro-1B-jR7"/>
-                <constraint firstItem="Mc7-ur-YL3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tD7-e4-hhH"/>
+                <constraint firstItem="eMm-Ts-q9c" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="GZd-9e-lz0"/>
+                <constraint firstItem="eMm-Ts-q9c" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QiB-SE-4f5"/>
+                <constraint firstItem="eMm-Ts-q9c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R7U-8q-XBR"/>
+                <constraint firstItem="eMm-Ts-q9c" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="h3l-M1-Gyn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="88.549618320610676" y="-60.563380281690144"/>
