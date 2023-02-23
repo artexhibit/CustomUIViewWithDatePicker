@@ -92,8 +92,8 @@ class CustomUIView: UIView {
         } completion: { [weak self] _ in
             guard let self = self else { return }
             self.removeFromSuperview()
+            self.date = self.formatter.string(from: Date())
         }
-        date = formatter.string(from: Date())
     }
     
     private func configureView(under button: UIButton) {

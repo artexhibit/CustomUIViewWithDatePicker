@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,52 +32,54 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="gp6-f7-WCu">
-                                        <rect key="frame" x="0.0" y="45" width="388" height="399"/>
+                                        <rect key="frame" x="0.0" y="35" width="388" height="409"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <connections>
                                             <action selector="datePickerPressed:" destination="-1" eventType="valueChanged" id="FTI-OK-ljp"/>
                                         </connections>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHm-VZ-chu">
-                                        <rect key="frame" x="8" y="15" width="80" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHm-VZ-chu">
+                                        <rect key="frame" x="0.0" y="15" width="81" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uNt-lW-ghw"/>
-                                            <constraint firstAttribute="height" constant="30" id="xau-1J-n0x"/>
+                                            <constraint firstAttribute="height" constant="20" id="xau-1J-n0x"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Готово"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Готово">
-                                            <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="YqM-7R-IDO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJi-2v-abR">
-                                        <rect key="frame" x="280.66666666666669" y="15" width="99.333333333333314" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJi-2v-abR">
+                                        <rect key="frame" x="290.66666666666669" y="15" width="97.333333333333314" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uio-oc-XRs"/>
-                                            <constraint firstAttribute="height" constant="30" id="wPK-tZ-19B"/>
+                                            <constraint firstAttribute="height" constant="20" id="wPK-tZ-19B"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Готово"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Отменить">
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Закрыть">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="cancelButtonPressed:" destination="-1" eventType="touchUpInside" id="4QX-a8-DJd"/>
-                                            <action selector="doneButtonPressed:" destination="-1" eventType="touchUpInside" id="dEf-Wm-HLj"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gp6-f7-WCu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" id="5Eh-BS-AuI"/>
                                     <constraint firstItem="PJi-2v-abR" firstAttribute="top" secondItem="S5Z-xU-aC5" secondAttribute="top" constant="15" id="Chk-MB-3Ad"/>
-                                    <constraint firstAttribute="trailing" secondItem="PJi-2v-abR" secondAttribute="trailing" constant="8" id="HwJ-h1-FyN"/>
+                                    <constraint firstAttribute="trailing" secondItem="PJi-2v-abR" secondAttribute="trailing" id="HwJ-h1-FyN"/>
                                     <constraint firstAttribute="trailing" secondItem="gp6-f7-WCu" secondAttribute="trailing" id="IE6-cI-G6J"/>
                                     <constraint firstItem="gp6-f7-WCu" firstAttribute="top" secondItem="hHm-VZ-chu" secondAttribute="bottom" id="KBY-MD-B7A"/>
-                                    <constraint firstItem="hHm-VZ-chu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" constant="8" id="bxf-aJ-4ob"/>
+                                    <constraint firstItem="hHm-VZ-chu" firstAttribute="leading" secondItem="S5Z-xU-aC5" secondAttribute="leading" id="bxf-aJ-4ob"/>
                                     <constraint firstAttribute="bottom" secondItem="gp6-f7-WCu" secondAttribute="bottom" id="usn-Os-eJC"/>
                                     <constraint firstItem="hHm-VZ-chu" firstAttribute="top" secondItem="S5Z-xU-aC5" secondAttribute="top" constant="15" id="zpN-QS-Drz"/>
                                 </constraints>
@@ -111,11 +112,8 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
