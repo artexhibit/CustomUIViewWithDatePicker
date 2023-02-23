@@ -79,14 +79,16 @@ class CustomUIView: UIView {
         configureDoneButton()
         configureViewDesign()
         
-        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseInOut) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.55, initialSpringVelocity: 2, options: .curveEaseOut) {
             self.alpha = 1.0
+            self.transform = .identity
         }
     }
     
     func hideView() {
-        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseInOut) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.55, initialSpringVelocity: 2, options: .curveEaseOut) {
             self.alpha = 0.0
+            self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         } completion: { [weak self] _ in
             guard let self = self else { return }
             self.removeFromSuperview()
@@ -140,6 +142,7 @@ class CustomUIView: UIView {
     }
     
     private func configureViewDesign() {
+        self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowOpacity = 0.2
         self.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
