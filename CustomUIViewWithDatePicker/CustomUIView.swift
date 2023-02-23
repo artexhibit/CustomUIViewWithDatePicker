@@ -111,7 +111,7 @@ class CustomUIView: UIView {
         } else {
             if UIScreen.main.bounds.size.height == 568.0 {
                 self.heightAnchor.constraint(equalTo: window.safeAreaLayoutGuide.heightAnchor, multiplier: 0.6).isActive = true
-                self.widthAnchor.constraint(equalTo: window.safeAreaLayoutGuide.widthAnchor, multiplier: 0.8).isActive = true
+                self.widthAnchor.constraint(equalTo: window.safeAreaLayoutGuide.widthAnchor, multiplier: 0.88).isActive = true
             } else {
                 self.heightAnchor.constraint(equalTo: window.safeAreaLayoutGuide.heightAnchor, multiplier: 0.43).isActive = true
                 self.widthAnchor.constraint(equalTo: window.safeAreaLayoutGuide.widthAnchor, multiplier: 0.75).isActive = true
@@ -125,19 +125,20 @@ class CustomUIView: UIView {
     
     private func configureDatePicker() {
         datePicker.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.topAnchor.constraint(equalTo: doneButton.bottomAnchor).isActive = true
         datePicker.bottomAnchor.constraint(equalTo: cornerView.bottomAnchor).isActive = true
         datePicker.leadingAnchor.constraint(equalTo: cornerView.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: cornerView.trailingAnchor).isActive = true
     }
     
     private func configureDoneButton() {
-        if date != today {
-            doneButton.isHidden = false
-            doneButton.isUserInteractionEnabled = true
-        } else {
-            doneButton.isHidden = true
-            doneButton.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn) { [self] in
+            if date != today {
+                doneButton.alpha = 1.0
+                doneButton.isUserInteractionEnabled = true
+            } else {
+                doneButton.alpha = 0.0
+                doneButton.isUserInteractionEnabled = false
+            }
         }
     }
     
