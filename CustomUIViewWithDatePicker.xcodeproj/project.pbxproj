@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		784CC6DC29AFC06A0001AEFA /* CustomUIMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CC6DB29AFC06A0001AEFA /* CustomUIMenu.swift */; };
+		784CC6DE29AFC0830001AEFA /* CustomUIMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784CC6DD29AFC0830001AEFA /* CustomUIMenu.xib */; };
+		784CC6E129AFC9F70001AEFA /* UIMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CC6DF29AFC9F70001AEFA /* UIMenuTableViewCell.swift */; };
+		784CC6E229AFC9F70001AEFA /* UIMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784CC6E029AFC9F70001AEFA /* UIMenuTableViewCell.xib */; };
 		78F3F72229A3D8C5002E00C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3F72129A3D8C5002E00C8 /* AppDelegate.swift */; };
 		78F3F72429A3D8C5002E00C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3F72329A3D8C5002E00C8 /* SceneDelegate.swift */; };
 		78F3F72929A3D8C5002E00C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F3F72729A3D8C5002E00C8 /* Main.storyboard */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		784CC6DB29AFC06A0001AEFA /* CustomUIMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIMenu.swift; sourceTree = "<group>"; };
+		784CC6DD29AFC0830001AEFA /* CustomUIMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomUIMenu.xib; sourceTree = "<group>"; };
+		784CC6DF29AFC9F70001AEFA /* UIMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMenuTableViewCell.swift; sourceTree = "<group>"; };
+		784CC6E029AFC9F70001AEFA /* UIMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIMenuTableViewCell.xib; sourceTree = "<group>"; };
 		78F3F71E29A3D8C5002E00C8 /* CustomUIViewWithDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomUIViewWithDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F3F72129A3D8C5002E00C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78F3F72329A3D8C5002E00C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +49,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		784CC6E329AFDE080001AEFA /* UIDatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				78F3F74429A3DCA2002E00C8 /* CustomUIView.swift */,
+				78F3F74629A3DCB5002E00C8 /* CustomUIView.xib */,
+			);
+			path = UIDatePickerView;
+			sourceTree = "<group>";
+		};
+		784CC6E429AFDE1E0001AEFA /* UIMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				784CC6DB29AFC06A0001AEFA /* CustomUIMenu.swift */,
+				784CC6DD29AFC0830001AEFA /* CustomUIMenu.xib */,
+				784CC6DF29AFC9F70001AEFA /* UIMenuTableViewCell.swift */,
+				784CC6E029AFC9F70001AEFA /* UIMenuTableViewCell.xib */,
+			);
+			path = UIMenuView;
+			sourceTree = "<group>";
+		};
 		78F3F71529A3D8C4002E00C8 = {
 			isa = PBXGroup;
 			children = (
@@ -64,11 +92,11 @@
 				78F3F72329A3D8C5002E00C8 /* SceneDelegate.swift */,
 				78F3F72729A3D8C5002E00C8 /* Main.storyboard */,
 				78F3F72C29A3D8C6002E00C8 /* LaunchScreen.storyboard */,
+				78F3F73E29A3DB17002E00C8 /* CustomUIViewViewController.swift */,
 				78F3F72A29A3D8C6002E00C8 /* Assets.xcassets */,
 				78F3F72F29A3D8C6002E00C8 /* Info.plist */,
-				78F3F74429A3DCA2002E00C8 /* CustomUIView.swift */,
-				78F3F73E29A3DB17002E00C8 /* CustomUIViewViewController.swift */,
-				78F3F74629A3DCB5002E00C8 /* CustomUIView.xib */,
+				784CC6E329AFDE080001AEFA /* UIDatePickerView */,
+				784CC6E429AFDE1E0001AEFA /* UIMenuView */,
 			);
 			path = CustomUIViewWithDatePicker;
 			sourceTree = "<group>";
@@ -131,7 +159,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				784CC6DE29AFC0830001AEFA /* CustomUIMenu.xib in Resources */,
 				78F3F72E29A3D8C6002E00C8 /* LaunchScreen.storyboard in Resources */,
+				784CC6E229AFC9F70001AEFA /* UIMenuTableViewCell.xib in Resources */,
 				78F3F72B29A3D8C6002E00C8 /* Assets.xcassets in Resources */,
 				78F3F74729A3DCB5002E00C8 /* CustomUIView.xib in Resources */,
 				78F3F72929A3D8C5002E00C8 /* Main.storyboard in Resources */,
@@ -147,7 +177,9 @@
 			files = (
 				78F3F74529A3DCA2002E00C8 /* CustomUIView.swift in Sources */,
 				78F3F72229A3D8C5002E00C8 /* AppDelegate.swift in Sources */,
+				784CC6DC29AFC06A0001AEFA /* CustomUIMenu.swift in Sources */,
 				78F3F72429A3D8C5002E00C8 /* SceneDelegate.swift in Sources */,
+				784CC6E129AFC9F70001AEFA /* UIMenuTableViewCell.swift in Sources */,
 				78F3F74029A3DB17002E00C8 /* CustomUIViewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

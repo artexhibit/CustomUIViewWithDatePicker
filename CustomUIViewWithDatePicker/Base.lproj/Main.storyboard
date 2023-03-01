@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBt-bP-f9K">
-                                <rect key="frame" x="143" y="175" width="230" height="38"/>
+                                <rect key="frame" x="184" y="175" width="189" height="33.333333333333343"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="p5s-Jt-PG9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="p5s-Jt-PG9"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Show DatePickerView">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                     <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXj-gq-yto">
-                                <rect key="frame" x="16" y="248" width="128" height="128"/>
+                                <rect key="frame" x="16" y="243.33333333333337" width="128" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="NpR-sy-IgX"/>
@@ -40,7 +40,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbG-cl-9jK">
-                                <rect key="frame" x="164" y="248" width="213" height="128"/>
+                                <rect key="frame" x="164" y="243.33333333333337" width="213" height="128"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="213" id="QQf-uA-cCu"/>
@@ -53,15 +53,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcJ-SO-BZd">
+                                <rect key="frame" x="20" y="175" width="120" height="33.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="k55-TR-8Fl"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Show View">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OPg-DS-aXo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bcJ-SO-BZd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1Qp-88-vIx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a8Z-Vw-Xox" secondAttribute="bottom" constant="30" id="2Ud-wK-PVW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fbG-cl-9jK" secondAttribute="trailing" constant="16" id="4Cp-Qk-C5x"/>
                             <constraint firstItem="a8Z-Vw-Xox" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FT8-iV-Aby"/>
-                            <constraint firstItem="nBt-bP-f9K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kt9-IN-qDx"/>
+                            <constraint firstItem="nBt-bP-f9K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bcJ-SO-BZd" secondAttribute="trailing" id="Kt9-IN-qDx"/>
                             <constraint firstItem="vXj-gq-yto" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Lez-DN-9q3"/>
+                            <constraint firstItem="bcJ-SO-BZd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Qfa-8I-UMA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nBt-bP-f9K" secondAttribute="trailing" constant="20" id="Qwj-mC-RuB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a8Z-Vw-Xox" secondAttribute="trailing" id="Rbg-4u-SET"/>
                             <constraint firstItem="vXj-gq-yto" firstAttribute="top" secondItem="nBt-bP-f9K" secondAttribute="bottom" constant="35" id="axQ-az-L35"/>
@@ -100,6 +116,9 @@
     <resources>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
