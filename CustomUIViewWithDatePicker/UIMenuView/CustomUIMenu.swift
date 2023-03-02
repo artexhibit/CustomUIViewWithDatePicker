@@ -51,7 +51,7 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         
         self.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 0).isActive = true
         self.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10.0).isActive = true
-        self.widthAnchor.constraint(equalToConstant: 250.0).isActive = true
+        self.widthAnchor.constraint(equalToConstant: 180.0).isActive = true
         heightConstraint = self.heightAnchor.constraint(equalToConstant: 0)
         heightConstraint?.isActive = true
         
@@ -94,7 +94,7 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: - DataSource Methods
+    //MARK: - TableView DataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return itemsToShow.count
     }
@@ -104,5 +104,9 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         cell.itemLabel.text = itemsToShow[indexPath.row]
         return cell
     }
-
+    
+    //MARK: - TableView Delegate Methods
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
 }

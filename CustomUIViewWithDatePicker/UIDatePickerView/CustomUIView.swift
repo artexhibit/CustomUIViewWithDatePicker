@@ -3,6 +3,7 @@ import UIKit
 
 protocol UIDatePickerDelegate {
     func didPickedDateFromPicker(date: String)
+    func didReceiveTap(in location: CGPoint)
 }
 
 class CustomUIView: UIView {
@@ -48,6 +49,18 @@ class CustomUIView: UIView {
         configureDoneButton()
     }
     
+    private func configureTapGestureRecogniser() {
+        guard let superview = superview else { return }
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapGestureRecognizer.cancelsTouchesInView = false
+        superview.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func handleTap(_ tap: UITapGestureRecognizer) {
+        let location = tap.location(in: self)
+        delegate?.didReceiveTap(in: location)
+    }
+    
     private func configure() {
         if let views = Bundle.main.loadNibNamed("CustomUIView", owner: self) {
             guard let view = views.first as? UIView else { return }
@@ -77,6 +90,7 @@ class CustomUIView: UIView {
         configureView(under: button)
         datePicker.date = Date()
         configureDoneButton()
+        configureTapGestureRecogniser()
         configureViewDesign()
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.55, initialSpringVelocity: 2, options: .curveEaseOut) {

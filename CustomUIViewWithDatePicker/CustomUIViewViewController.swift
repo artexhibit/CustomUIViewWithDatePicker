@@ -10,16 +10,6 @@ class CustomUIViewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customV.delegate = self
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        view.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    @objc func handleTap(_ tap: UITapGestureRecognizer) {
-        let location = tap.location(in: view)
-        
-        if !customV.frame.contains(location) {
-            customV.hideView()
-        }
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -32,8 +22,11 @@ class CustomUIViewViewController: UIViewController {
 }
 
 extension CustomUIViewViewController: UIDatePickerDelegate {
+    func didReceiveTap(in location: CGPoint) {
+        if !customV.bounds.contains(location) { customV.hideView() }
+    }
+    
     func didPickedDateFromPicker(date: String) {
         dateLabel.text = date
     }
-    
 }
