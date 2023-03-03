@@ -1,7 +1,11 @@
 
 import UIKit
 
-class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
+protocol CustomUIMenuDelegate {
+    func didReceiveTapForUIMenu(in location: CGPoint)
+}
+
+class CustomUIMenu: UIView {
     
     @IBOutlet weak var cornerView: UIView!
     @IBOutlet weak var tableView: UITableView! {
@@ -12,6 +16,11 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     private var itemsToShow = [String]()
     private var heightConstraint: NSLayoutConstraint?
+    private var viewWidth: CGFloat {
+        return UIScreen.main.bounds.size.height == 568.0 ? 180 : 250
+    }
+    private var tapGestureRecogniser: UITapGestureRecognizer?
+    var delegate: CustomUIMenuDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,6 +35,20 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     override func layoutSubviews() {
         super.layoutSubviews()
         heightConstraint?.constant = tableView.contentSize.height
+    }
+    
+    private func configureTapGestureRecogniser() {
+        guard let superview = superview else { return }
+        tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        if let tapGR = tapGestureRecogniser {
+            tapGR.cancelsTouchesInView = false
+            superview.addGestureRecognizer(tapGR)
+        }
+    }
+    
+    @objc private func handleTap(_ tap: UITapGestureRecognizer) {
+        let location = tap.location(in: self)
+        delegate?.didReceiveTapForUIMenu(in: location)
     }
     
     private func configure() {
@@ -51,7 +74,7 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         
         self.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 0).isActive = true
         self.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10.0).isActive = true
-        self.widthAnchor.constraint(equalToConstant: 180.0).isActive = true
+        self.widthAnchor.constraint(equalToConstant: viewWidth).isActive = true
         heightConstraint = self.heightAnchor.constraint(equalToConstant: 0)
         heightConstraint?.isActive = true
         
@@ -76,6 +99,7 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         self.itemsToShow = items
         configureView(under: button, in: view)
         configureViewDesign()
+        configureTapGestureRecogniser()
         
         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.55, initialSpringVelocity: 2, options: .curveEaseOut) {
             self.alpha = 1.0
@@ -90,10 +114,13 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         } completion: { [weak self] _ in
             guard let self = self else { return }
             self.heightConstraint?.isActive = false
+            self.tapGestureRecogniser?.view?.removeGestureRecognizer(self.tapGestureRecogniser!)
             self.removeFromSuperview()
         }
     }
-    
+}
+
+extension CustomUIMenu: UITableViewDelegate, UITableViewDataSource {
     //MARK: - TableView DataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return itemsToShow.count
@@ -106,7 +133,18 @@ class CustomUIMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - TableView Delegate Methods
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.hideView()
+    
+        guard let cell = tableView.cellForRow(at: indexPath) as? UIMenuTableViewCell else { return }
+        
+        if cell.iconImage.isHidden {
+            for row in 0..<tableView.numberOfRows(inSection: 0) {
+                guard let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? UIMenuTableViewCell else { return }
+                cell.iconImage.isHidden = true
+            }
+        }
+        cell.iconImage.isHidden = false
     }
 }

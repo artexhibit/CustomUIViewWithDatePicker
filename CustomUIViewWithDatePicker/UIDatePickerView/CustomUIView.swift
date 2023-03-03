@@ -16,6 +16,7 @@ class CustomUIView: UIView {
     var date: String?
     var today: String?
     
+    private var tapGestureRecognizer: UITapGestureRecognizer?
     private var formatter: DateFormatter {
         get {
             let formatter = DateFormatter()
@@ -51,9 +52,11 @@ class CustomUIView: UIView {
     
     private func configureTapGestureRecogniser() {
         guard let superview = superview else { return }
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        tapGestureRecognizer.cancelsTouchesInView = false
-        superview.addGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        if let tapGR = tapGestureRecognizer {
+            tapGR.cancelsTouchesInView = false
+            superview.addGestureRecognizer(tapGR)
+        }
     }
     
     @objc private func handleTap(_ tap: UITapGestureRecognizer) {
@@ -106,6 +109,7 @@ class CustomUIView: UIView {
         } completion: { [weak self] _ in
             guard let self = self else { return }
             self.removeFromSuperview()
+            self.tapGestureRecognizer?.view?.removeGestureRecognizer(self.tapGestureRecognizer!)
             self.date = self.formatter.string(from: Date())
         }
     }

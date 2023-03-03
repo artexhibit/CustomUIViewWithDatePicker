@@ -10,18 +10,23 @@ class CustomUIViewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customV.delegate = self
+        customM.delegate = self
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        customV.superview == nil ? customV.showView(under: sender) : customV.hideView()
+        if customV.superview == nil { customV.showView(under: sender) }
     }
     
     @IBAction func showViewButtonPressed(_ sender: UIButton) {
-        customM.superview == nil ? customM.showView(under: sender, in: self.view, with: ["Forex (Биржа)", "ЦБ РФ"]) : customM.hideView()
+        if customM.superview == nil { customM.showView(under: sender, in: self.view, with: ["Forex (Биржа)", "ЦБ РФ"]) }
     }
 }
 
-extension CustomUIViewViewController: UIDatePickerDelegate {
+extension CustomUIViewViewController: UIDatePickerDelegate, CustomUIMenuDelegate {
+    func didReceiveTapForUIMenu(in location: CGPoint) {
+        if !customM.bounds.contains(location) { customM.hideView() }
+    }
+    
     func didReceiveTap(in location: CGPoint) {
         if !customV.bounds.contains(location) { customV.hideView() }
     }
