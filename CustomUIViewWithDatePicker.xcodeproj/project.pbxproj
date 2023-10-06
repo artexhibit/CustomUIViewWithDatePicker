@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2DFC202AD0858500FF1434 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 0B2DFC1E2AD0858500FF1434 /* Assets */; };
+		0B2DFC222AD085CE00FF1434 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0B2DFC212AD085CE00FF1434 /* README.md */; };
 		784CC6DC29AFC06A0001AEFA /* CustomUIMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CC6DB29AFC06A0001AEFA /* CustomUIMenu.swift */; };
 		784CC6DE29AFC0830001AEFA /* CustomUIMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784CC6DD29AFC0830001AEFA /* CustomUIMenu.xib */; };
 		784CC6E129AFC9F70001AEFA /* UIMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CC6DF29AFC9F70001AEFA /* UIMenuTableViewCell.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B2DFC1E2AD0858500FF1434 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		0B2DFC212AD085CE00FF1434 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		784CC6DB29AFC06A0001AEFA /* CustomUIMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIMenu.swift; sourceTree = "<group>"; };
 		784CC6DD29AFC0830001AEFA /* CustomUIMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomUIMenu.xib; sourceTree = "<group>"; };
 		784CC6DF29AFC9F70001AEFA /* UIMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		78F3F71529A3D8C4002E00C8 = {
 			isa = PBXGroup;
 			children = (
+				0B2DFC212AD085CE00FF1434 /* README.md */,
+				0B2DFC1E2AD0858500FF1434 /* Assets */,
 				78F3F72029A3D8C5002E00C8 /* CustomUIViewWithDatePicker */,
 				78F3F71F29A3D8C5002E00C8 /* Products */,
 			);
@@ -129,7 +135,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					78F3F71D29A3D8C5002E00C8 = {
 						CreatedOnToolsVersion = 14.2;
@@ -160,10 +166,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				784CC6DE29AFC0830001AEFA /* CustomUIMenu.xib in Resources */,
+				0B2DFC202AD0858500FF1434 /* Assets in Resources */,
 				78F3F72E29A3D8C6002E00C8 /* LaunchScreen.storyboard in Resources */,
 				784CC6E229AFC9F70001AEFA /* UIMenuTableViewCell.xib in Resources */,
 				78F3F72B29A3D8C6002E00C8 /* Assets.xcassets in Resources */,
 				78F3F74729A3DCB5002E00C8 /* CustomUIView.xib in Resources */,
+				0B2DFC222AD085CE00FF1434 /* README.md in Resources */,
 				78F3F72929A3D8C5002E00C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +218,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -242,6 +251,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -270,6 +280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -302,6 +313,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
