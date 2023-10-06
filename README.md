@@ -1,4 +1,4 @@
-<img align="right" width="210" src="https://raw.githubusercontent.com/artexhibit/CustomUIViewWithDatePicker/master/Assets/preview.gif">
+<img align="right" width="320" src="https://raw.githubusercontent.com/artexhibit/CustomUIViewWithDatePicker/master/Assets/preview.gif">
 
 # CustomUIViewWithDatePicker
 
